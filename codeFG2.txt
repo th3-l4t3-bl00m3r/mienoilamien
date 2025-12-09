@@ -1,0 +1,85 @@
+import pandas as pd
+from pulp import LpProblem, LpMinimize, LpVariable, lpSum, LpStatus
+
+# Read data from Excel file
+excel_file = "E:\FTUers\LGC25\Book2025.xlsx"  # Your Excel file path
+scenario_name = "Scenario1"  # Change this to read different sheets: Scenario1, Scenario2, etc.
+
+# Read the specified sheet
+df = pd.read_excel(excel_file, sheet_name=scenario_name)
+
+# Convert dataframe to dictionaries
+sales_forecast = {}
+purchase_cost_per_unit = {}
+holding_cost_per_unit = {}
+production_cost_per_unit = {}
+
+for _, row in df.iterrows():
+    month = int(row['month'])
+    sales_forecast[month] = int(row['sales_forecast'])
+    purchase_cost_per_unit[month] = int(row['purchase_cost_per_unit'])
+    holding_cost_per_unit[month] = int(row['holding_cost_per_unit'])
+    production_cost_per_unit[month] = int(row['production_cost_per_unit'])
+
+max_production_capacity = 740
+initial_inventory = 0
+months = list(range(1, 13))
+
+model = LpProblem(name="Production_Planning_Optimization", sense=LpMinimize)
+
+production_vars = LpVariable.dicts("Production", months, lowBound=0, cat='Integer')
+inventory_vars = {}
+last_inventory = initial_inventory
+for m in months:
+	inventory_vars[m] = last_inventory + production_vars[m] - sales_forecast[m]
+	last_inventory = inventory_vars[m]
+
+total_purchase_cost = lpSum(production_vars[m] * purchase_cost_per_unit[m] for m in months)
+total_holding_cost = lpSum(inventory_vars[m] * holding_cost_per_unit[m] for m in months)
+total_production_cost = lpSum(production_vars[m] * production_cost_per_unit[m] for m in months)
+
+model += total_holding_cost, "Total_Variable_Cost"
+
+# Constraints
+for m in months:
+	model += inventory_vars[m] >= 0, f"Inventory_Non_Negative_{m}"
+	model += production_vars[m] <= max_production_capacity, f"Production_Capacity_Limit_{m}"
+
+model.solve()
+
+print(f"SCENARIO: {scenario_name}")
+print(f"Status: {LpStatus[model.status]}")
+
+optimal_purchase_cost = total_purchase_cost.value()
+optimal_holding_cost = total_holding_cost.value()
+optimal_production_cost = total_production_cost.value()
+total_optimal_cost_check = optimal_purchase_cost + optimal_holding_cost + optimal_production_cost
+
+print("\n" + "="*50)
+print("="*50)
+print(f"1. Tổng chi phí nguyên liệu (Freight + Pur): ${optimal_purchase_cost:15,.2f}")
+print(f"2. Tổng chi phí giữ hàng (Holding Cost):      ${optimal_holding_cost:15,.2f}")
+print(f"3. Tổng chi phí sản xuất (Production Cost):   ${optimal_production_cost:15,.2f}")
+print("-"*50)
+print(f"   Tổng cộng chi phí:                        ${total_optimal_cost_check:15,.2f}")
+
+# Sản xuất và tồn kho hàng tháng
+
+print("\n" + "="*50)
+print("Sản xuất")
+print("="*50)
+print(f"{'Tháng':<10} | {'Bán (dự báo)':<15} | {'Sản xuất (kế hoạch)':<20} | {'Tồn kho cuối kỳ':<18}")
+print("-"*70)
+
+total_production = 0
+total_sales = sum(sales_forecast.values())
+for m in months:
+	prod_quantity = production_vars[m].value()
+	inv_quantity = inventory_vars[m].value()
+	total_production += prod_quantity
+	print(f"Tháng {m:<5} | {sales_forecast[m]:<15} | {prod_quantity:<20.0f} | {inv_quantity:<18.0f}")
+
+print("="*70)
+print(f"Tổng sản lượng bán cả năm: {total_sales}")
+print(f"Tổng sản lượng sản xuất cả năm: {total_production}")
+print("="*70)
