@@ -19,7 +19,7 @@
 
 <h1 align="center">Mystic from FTU 👋</h1>
 
-<h2 align="center">"every line of code tells a distinct storyline yet to be unfold"</h2>
+<h3 align="center">"every line of code tells a distinct storyline yet to be unfold"</h3>
 
 <h3 align="left">👩‍💻  About Me</h3>
 
