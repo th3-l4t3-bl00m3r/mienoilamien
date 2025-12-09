@@ -5,9 +5,17 @@
 ###
 
 <div align="center">
-  <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="linkedin logo"  />
-  <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="youtube logo"  />
-  <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="twitter logo"  />
+  <a href="**https://www.linkedin.com/in/tdinh204/**" target="_blank">
+  <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="linkedin logo" />
+</a>
+
+  <a href="**https://www.youtube.com/@t.mystic**" target="_blank">
+  <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="youtube logo" />
+</a>
+
+  <a href="**YOUR_TWITTER_PROFILE_URL**" target="_blank">
+  <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="twitter logo" />
+</a>
 </div>
 
 ###
@@ -42,5 +50,21 @@ Finalist @The Supply Chain Race 2024; <br>
 Top 20 @LogiChain 2025.</p>
 
 
+<h3 align="left">🔥   My Projects:<br> </h3>
 
-###
+<a href="**https://github.com/th3-l4t3-bl00m3r/mienoilamien/blob/main/codeFG2.txt**" target="_blank">
+  
+  <img 
+    src="**https://www.pinterest.com/pin/6192518232770207/**" 
+    alt="MRP-TCO Optimization Project" 
+    width="300" 
+  />
+  
+  <h4>MRP-TCO Optimization with Python</h4>
+</a>
+
+<p>Create MRP - TCO optimization
+<br>In this case, we're tasked with the mission to propose the optimal amount of cars to produce each month to minimize TCO (total cost of ownership), which is the total of purchasing, holding and production costs. Inputs of next year's forecasted demand, unit holding costs and production costs (computed as total costs of materials needed to build a car) is given.</p>
+
+<hr> ```
+
