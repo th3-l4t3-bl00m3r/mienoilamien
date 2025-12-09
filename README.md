@@ -42,23 +42,10 @@ Top 20 @LogiChain 2025.</p>
 
 <h3 align="left">🔥   My Projects:<br> </h3>
 
-<a href="https://github.com/th3-l4t3-bl00m3r/mienoilamien/blob/main/codeFG2.txt" target="_blank" style="text-decoration: none; color: inherit;">
-  
-  <img 
-    src="https://placehold.co/300x168/0077B5/white?text=MRP-TCO+Optimization" 
-    alt="MRP-TCO Optimization Project Thumbnail" 
-    width="300" 
-    style="display: block; border: 1px solid #ccc;"
-  />
-  
-  <h4 style="margin-top: 5px; margin-bottom: 5px; font-size: 1.1em; color: #030303;">
-    MRP-TCO Optimization with Python
-  </h4>
-</a>
+[![Project 1 Thumbnail Alt Text](**"https://placehold.co/300x168/0077B5/white?text=MRP-TCO+Optimization"**)](**https://github.com/th3-l4t3-bl00m3r/mienoilamien/blob/main/codeFG2.txt**)
 
-<p style="margin-top: 0; font-size: 0.9em; color: #606060;">
-  Analyzed Material Requirements Planning (MRP) and Total Cost of Ownership (TCO) using Python's scientific stack (Pandas, SciPy) to model and find optimal inventory strategies.
-</p>
+**[MRP-TCO Optimization with Python](**https://github.com/th3-l4t3-bl00m3r/mienoilamien/blob/main/codeFG2.txt**)**
 
-<hr>
+<p> Create MRP - TCO optimization
+<br>In this case, we're tasked with the mission to propose the optimal amount of cars to produce each month to minimize TCO (total cost of ownership), which is the total of purchasing, holding and production costs. Inputs of next year's forecasted demand, unit holding costs and production costs (computed as total costs of materials needed to build a car) is given.</p>
 
