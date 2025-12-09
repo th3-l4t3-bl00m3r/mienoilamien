@@ -19,6 +19,8 @@
 
 <h1 align="center">Mystic from FTU 👋</h1>
 
+<h2 align="center">"every line of code tells a distinct storyline yet to be unfold"</h2>
+
 <h3 align="left">👩‍💻  About Me</h3>
 
 <p align="left">I'm Mystic from Hanoi.<br><br>- 🔭 I’m currently a Senior International Business student from Foreign Trade University, majoring in Logistics and Supply Chain Management. <br>- 📚 I'm currently learning Python and French as sidequests :>> <br>- ⚡ In my free time I play and watch all kinds of sports, including eSports as well :></p>
